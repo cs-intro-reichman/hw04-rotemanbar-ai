@@ -1,5 +1,5 @@
 /** A library of operations on arrays of characters (char values).
- *  The library also features a string comparison method. */
+ * The library also features a string comparison method. */
 public class ArrCharOps {
     public static void main(String[] args) {
         String str = "clearly";
@@ -41,7 +41,7 @@ public class ArrCharOps {
     }
 
     /** If the two arrays have the same value in every index, 
-     *  returns true; Otherwise returns false.
+     * returns true; Otherwise returns false.
      */
     public static boolean equals(char[] arr1, char[] arr2) {
         if (arr1.length == arr2.length) {
@@ -56,7 +56,7 @@ public class ArrCharOps {
     }
 
     /** Returns the index within the given array of the first occurrence of the given character.
-     *  If no such character is found, returns -1.
+     * If no such character is found, returns -1.
      */
     public static int indexOf(char[] arr, char ch) {
         for (int i = 0; i < arr.length; i++) {
@@ -79,7 +79,7 @@ public class ArrCharOps {
     }
 
     /** Returns the index within the given arr of the last occurrence of the given character.
-     *  If no such character is found, returns -1.
+     * If no such character is found, returns -1.
      */
     public static int lastIndexOf(char[] arr, char ch) {
         for (int i = arr.length - 1; i >= 0; i--) {
@@ -94,9 +94,13 @@ public class ArrCharOps {
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         char[] resultArr = new char[arr1.length + arr2.length];
-        for (int i = 0; i < arr1.length; i++) {
+        
+        // --- התיקון נמצא כאן למטה ---
+        // מחקתי את המילה int המיותרת שהייתה בתוך התנאי
+        for (int i = 0; i < arr1.length; i++) { 
             resultArr[i] = arr1[i];
         }
+        // גם כאן מחקתי את המילה int המיותרת
         for (int i = 0; i < arr2.length; i++) {
             resultArr[i + arr1.length] = arr2[i];
         }
@@ -104,9 +108,9 @@ public class ArrCharOps {
     }
 
     /** Returns a new array that can be described as a sub-array of this array.
-     *  The sub-array begins at the specified beginIndex and extends to the character at index endIndex - 1.
-     *  For example, if arr contains the characters "hamburger", then subArray(4, 8) returns an array of
-     *  characters containing the characters "urge".
+     * The sub-array begins at the specified beginIndex and extends to the character at index endIndex - 1.
+     * For example, if arr contains the characters "hamburger", then subArray(4, 8) returns an array of
+     * characters containing the characters "urge".
      */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char[] subArray = new char[endIndex - beginIndex];
@@ -116,45 +120,17 @@ public class ArrCharOps {
         return subArray;
     }
 
-     /** Returns a single integer that represents the given array. This integer is sometimes 
-     *  referred to as the array's "hash code". Later in the course we'll explain what these 
-     *  hash codes are used for. For now, simply implement the specification given below.
-     *  The hash code is computed as: arr[0]*7^(n-1) + arr[1]*7^(n-2) + ... + arr[n-2]*7 + arr[n-1]
-     *  where arr[i] is the i'th character of the array, and n is the array's length.
-     *  The hash value of an empty array is zero.
-     */
-    /** Returns a single integer that represents the given array. */
+     /** Returns a single integer that represents the given array. */
     public static long hashCode(char[] arr) {
         long result = 0; 
-    for (int i = 0; i < arr.length; i++) {
-        result = result * 7 + arr[i]; 
-    }   
-    return result;
-}
+        for (int i = 0; i < arr.length; i++) {
+            result = result * 7 + arr[i]; 
+        }   
+        return result;
+    }
+
     /**
      * Compares the two strings lexicographically.
-     * Assume that both strings are not empty.
-     * 
-     * Characters are compared one by one from left to right, using their numeric Unicode values,
-        as follows:
-     * 1. If two characters at the same position in both strings are different,
-     *    the string with the smaller character is considered lexicographically smaller.
-     * 2. If all characters in the shorter string match the corresponding characters
-     *    in the longer string, the shorter string is considered lexicographically smaller.
-     * 3. If both strings have the same characters and the same length, they are considered equal.
-     * 
-     * Examples:
-     * - "apple" is less than "banana" because 'a' comes before 'b'.
-     * - "abc" is less than "abcd" because it is shorter.
-     * - "hello" is equal to "hello".
-     * - "date" is greater than "dark" because 't' comes after 'k'.
-     * 
-     * @param str1 the first string to compare
-     * @param str2 the second string to compare
-     * @return -1 if str1 is lexicographically less than str2,
-     *         zero if they are equal, and 1 if str1 is
-     *         lexicographically greater than str2.
-     *         return -2 if there is an error with the input.
      */
     public static int compareTo(String str1, String str2) {
         int minLength = Math.min(str1.length(), str2.length());
@@ -174,6 +150,5 @@ public class ArrCharOps {
         } else {
             return 0;
         }
-
     }
 }

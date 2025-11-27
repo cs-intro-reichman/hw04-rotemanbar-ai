@@ -24,8 +24,6 @@ public class ArrCharOps {
         System.out.println(hashCode(arr2));
     }
 
-    /** Prints the given array of characters, and moves the cursor to the next line.
-     */
     public static void println(char[] arr) {
         for (int i = 0; i < arr.length; i++) {
             System.out.print(arr[i]);
@@ -33,16 +31,10 @@ public class ArrCharOps {
         System.out.println();
     }
 
-    /** Returns the char value at the specified index. Assume that the array is non-empty.
-     */
     public static char charAt(char[] arr, int index) {
-        char charAt = arr[index];
-        return charAt;
+        return arr[index];
     }
 
-    /** If the two arrays have the same value in every index, 
-     * returns true; Otherwise returns false.
-     */
     public static boolean equals(char[] arr1, char[] arr2) {
         if (arr1.length == arr2.length) {
             for (int i = 0; i < arr1.length; i++) {
@@ -55,63 +47,46 @@ public class ArrCharOps {
         return false;
     }
 
-    /** Returns the index within the given array of the first occurrence of the given character.
-     * If no such character is found, returns -1.
-     */
     public static int indexOf(char[] arr, char ch) {
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == ch) {
-                return(i);
+                return i;
             }
         }
         return -1;
     }
 
-    /** Same as indexOf(char[], char), but starts the search in the given index.
-     */
     public static int indexOf(char[] arr, char ch, int fromIndex) {
         for (int i = fromIndex; i < arr.length; i++) {
             if (arr[i] == ch) {
-                return(i);
+                return i;
             }
         }
         return -1;
     }
 
-    /** Returns the index within the given arr of the last occurrence of the given character.
-     * If no such character is found, returns -1.
-     */
     public static int lastIndexOf(char[] arr, char ch) {
         for (int i = arr.length - 1; i >= 0; i--) {
             if (arr[i] == ch) {
-                return(i);
+                return i;
             }
         }
         return -1;
     }
 
-    /* Returns an array which is the concatanation of the two given arrays.
-    */
     public static char[] concat(char[] arr1, char[] arr2) {
         char[] resultArr = new char[arr1.length + arr2.length];
         
-        // --- התיקון נמצא כאן למטה ---
-        // מחקתי את המילה int המיותרת שהייתה בתוך התנאי
-        for (int i = 0; i < arr1.length; i++) { 
+        // --- התיקון כאן: הסרנו את ה-int המיותר ---
+        for (int i = 0; i < arr1.length; i++) {
             resultArr[i] = arr1[i];
         }
-        // גם כאן מחקתי את המילה int המיותרת
         for (int i = 0; i < arr2.length; i++) {
             resultArr[i + arr1.length] = arr2[i];
         }
         return resultArr;
     }
 
-    /** Returns a new array that can be described as a sub-array of this array.
-     * The sub-array begins at the specified beginIndex and extends to the character at index endIndex - 1.
-     * For example, if arr contains the characters "hamburger", then subArray(4, 8) returns an array of
-     * characters containing the characters "urge".
-     */     
     public static char[] subArray(char[] arr, int beginIndex, int endIndex) {
         char[] subArray = new char[endIndex - beginIndex];
         for (int i = 0; i < subArray.length; i++) {
@@ -120,7 +95,6 @@ public class ArrCharOps {
         return subArray;
     }
 
-     /** Returns a single integer that represents the given array. */
     public static long hashCode(char[] arr) {
         long result = 0; 
         for (int i = 0; i < arr.length; i++) {
@@ -129,9 +103,6 @@ public class ArrCharOps {
         return result;
     }
 
-    /**
-     * Compares the two strings lexicographically.
-     */
     public static int compareTo(String str1, String str2) {
         int minLength = Math.min(str1.length(), str2.length());
         for (int i = 0; i < minLength; i++) {

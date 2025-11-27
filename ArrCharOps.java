@@ -94,10 +94,10 @@ public class ArrCharOps {
     */
     public static char[] concat(char[] arr1, char[] arr2) {
         char[] resultArr = new char[arr1.length + arr2.length];
-        for (int i = 0; int i < arr1.length; i++) {
+        for (int i = 0; i < arr1.length; i++) {
             resultArr[i] = arr1[i];
         }
-        for (int i = 0; int i < arr2.length; i++) {
+        for (int i = 0; i < arr2.length; i++) {
             resultArr[i + arr1.length] = arr2[i];
         }
         return resultArr;

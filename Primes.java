@@ -1,6 +1,6 @@
 public class Primes {
     public static void main(String[] args) {
-    if (args.length == 0) {
+        if (args.length == 0) {
             System.out.println("Usage: java Primes <number>");
             return;
         }
@@ -8,6 +8,7 @@ public class Primes {
         System.out.println("Prime numbers up to " + n + ":");
         findPrimes(n);
     }
+
     public static void findPrimes(int n) {
         if (n < 2) {
             System.out.println("There are 0 primes between 2 and " + n);
@@ -26,21 +27,19 @@ public class Primes {
         }
         printResults(n, isPrime);
     }
-    public static void printResults(int n, boolean[] isPrime) {
-    int primeCount = 0;
-    for (int i = 2; i <= n; i++) {
-        if (isPrime[i]) {
-            System.out.println(i);
-            primeCount++;
-        }
-    }
-    int totalNumbers = n - 1;
-    if (totalNumbers <= 0) { 
-        totalNumbers = 1; 
-    }
-    double percentage = (double) primeCount * 100 / totalNumbers;
-    
-    System.out.printf("There are %d primes between 2 and %d (%.0f%% are primes)\n",  primeCount, n, percentage);
-}
 
+    public static void printResults(int n, boolean[] isPrime) {
+        int primeCount = 0;
+        for (int i = 2; i <= n; i++) {
+            if (isPrime[i]) {
+                System.out.println(i);
+                primeCount++;
+            }
+        }
+        
+        // החישוב הנכון: אחוזים מתוך n
+        double percentage = (double) primeCount * 100 / n;
+        
+        System.out.printf("There are %d primes between 2 and %d (%.0f%% are primes)\n",  primeCount, n, percentage);
+    }
 }

@@ -76,8 +76,6 @@ public class ArrCharOps {
 
     public static char[] concat(char[] arr1, char[] arr2) {
         char[] resultArr = new char[arr1.length + arr2.length];
-        
-        // --- התיקון כאן: הסרנו את ה-int המיותר ---
         for (int i = 0; i < arr1.length; i++) {
             resultArr[i] = arr1[i];
         }
@@ -104,6 +102,12 @@ public class ArrCharOps {
     }
 
     public static int compareTo(String str1, String str2) {
+        // --- התיקון: בדיקה אם המחרוזות ריקות או null ---
+        if (str1 == null || str2 == null || str1.length() == 0 || str2.length() == 0) {
+            return -2;
+        }
+        // ------------------------------------------------
+
         int minLength = Math.min(str1.length(), str2.length());
         for (int i = 0; i < minLength; i++) {
             char char1 = str1.charAt(i);
